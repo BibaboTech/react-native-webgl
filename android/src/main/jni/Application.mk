@@ -7,7 +7,9 @@ APP_MK_DIR := $(dir $(lastword $(MAKEFILE_LIST)))
 
 NDK_MODULE_PATH:=.$(HOST_DIRSEP)$(THIRD_PARTY_NDK_DIR)
 
-APP_STL := gnustl_shared
+#Hoai Ngo : https://developer.android.com/ndk/guides/cpp-support.html
+#APP_STL := gnustl_shared
+APP_STL := c++_shared
 APP_CPPFLAGS := -std=c++11 -fexceptions -pthread
 
 # Make sure every shared lib includes a .note.gnu.build-id header
@@ -17,4 +19,5 @@ APP_LDFLAGS += -lGLESv2
 APP_LDFLAGS += -pthread
 APP_LDFLAGS += -ljnigraphics
 
-NDK_TOOLCHAIN_VERSION := 4.9
+#Hoai Ngo: https://android.googlesource.com/platform/ndk/+/master/docs/ClangMigration.md
+#NDK_TOOLCHAIN_VERSION := 4.9
